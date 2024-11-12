@@ -1,0 +1,306 @@
+:root {
+    --color-primario: #1E88E5;
+    --color-secundario: #ECEFF1;
+    --color-texto: #2C3E50;
+    --color-fondo: #FFFFFF;
+    --color-hover: #1565C0;
+    --color-error: #D32F2F;
+    --color-boton: #FF5722;
+    --fuente-principal: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-principal);
+}
+
+body {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 250px;
+    background-color: var(--color-primario);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar ul li a,
+.sidebar ul li button {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li button:hover {
+    background-color: var(--color-hover);
+}
+
+.sidebar .usuario p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* Contenido principal */
+main {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--color-secundario);
+}
+
+/* Formularios */
+.agregar-producto {
+    background-color: var(--color-fondo);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.agregar-producto h2 {
+    margin-bottom: 20px;
+    color: var(--color-primario);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #B0BEC5;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="url"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--color-primario);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.btn-agregar {
+    background-color: var(--color-boton);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #E64A19;
+}
+
+.error {
+    color: var(--color-error);
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Filtros y listado */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 25px;
+    background-color: var(--color-fondo);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filtros h3 {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    color: var(--color-primario);
+}
+
+.filtros label {
+    background-color: #CFD8DC;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filtros label:hover {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.instrucciones {
+    margin-bottom: 20px;
+    list-style: decimal inside;
+    color: var(--color-texto);
+}
+
+.tabla-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-fondo);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ECEFF1;
+}
+
+th {
+    background-color: var(--color-primario);
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+}
+
+th#price::after {
+    content: '';
+}
+
+tr:hover {
+    background-color: #F5F5F5;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+footer {
+    background-color: var(--color-primario);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Clase para ocultar elementos */
+.oculto {
+    display: none;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .filtros {
+        flex-direction: column;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .sidebar .usuario {
+        display: none;
+    }
+
+    footer {
+        position: static;
+    }
+}
+
+/* Estilos para categorías */
+tr.c1 { background-color: #E3F2FD; }
+tr.c2 { background-color: #FFEBEE; }
+tr.c3 { background-color: #E8F5E9; }
+tr.c4 { background-color: #FFF3E0; }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Inventario Rodrigo</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="codigo.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <h2>Inventario</h2>
+        <ul>
+            <li><button class="btn-obtener" onclick="obtenerProductos(); this.style.display='none';">Cargar Inventario</button></li>
+            <li><a href="#agregarProducto">Agregar Producto</a></li>
+            <li><a href="#listado">Listado de Productos</a></li>
+        </ul>
+        <div class="usuario">
+            <p>Carnet: PG22010</p>
+            <p>Nombre: Rodrigo Ernesto Parada Garciaguirre</p>
+            <p>Grupo: 09</p>
+        </div>
+    </nav>
+
+    <main>
+        <section id="agregarProducto" class="agregar-producto">
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="formAgregarProducto">
+                <div class="form-group">
+                    <label for="title">Nombre del Producto:</label>
+                    <input type="text" id="title" name="title" placeholder="Ej. Cámara DSLR" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Costo:</label>
+                    <input type="number" id="priceInput" name="price" step="0.01" placeholder="Ej. 499.99" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Detalles:</label>
+                    <textarea id="description" name="description" placeholder="Descripción del producto..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Tipo:</label>
+                    <select id="category" name="category" required>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="hogar">Hogar</option>
+                        <option value="moda">Moda</option>
+                        <option value="juguetes">Juguetes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagen URL:</label>
+                    <input type="url" id="image" name="image" placeholder="https://ejemplo.com/imagen.jpg" required>
+                </div>
+                <button type="submit" class="btn-agregar">Añadir Producto</button>
+            </form>
+            <p id="mensajeError" class="error"></p>
+        </section>
+
+        <section id="listado" class="listado oculto">
+            <h2>Listado de Productos</h2>
+            <form id="filtroprods">
+                <div class="filtros">
+                    <h3>Filtrar por Tipo</h3>
+                    <label><input type="checkbox" id="c1" value="c1" checked> Tecnología</label>
+                    <label><input type="checkbox" id="c2" value="c2" checked> Hogar</label>
+                    <label><input type="checkbox" id="c3" value="c3" checked> Moda</label>
+                    <label><input type="checkbox" id="c4" value="c4" checked> Juguetes</label>
+                </div>
+                <ol class="instrucciones">
+                    <li>Haz clic en la imagen para verla en grande.</li>
+                    <li>Haz clic en el costo para ordenar de menor a mayor o viceversa.</li>
+                </ol>
+                <div class="tabla-responsive">
+                    <table id="tabla">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th id="price">Costo ⇅</th>
+                                <th>Detalles</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Rodrigo Ernesto Parada Garciaguirre. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
